@@ -273,7 +273,7 @@ const Signup = () => {
               </div>
             </div>
             <div className="flex -mx-3">
-              <div className="w-full px-3 mb-12">
+              <div className="w-full px-3 mb-5">
                 <label htmlFor="" className="text-xs font-semibold px-1">
                   Password
                 </label>
@@ -290,7 +290,7 @@ const Signup = () => {
               </div>
             </div>
             <div className="flex -mx-3">
-              <div className="w-full px-3 mb-12">
+              <div className="w-full px-3 mb-10">
                 <label htmlFor="" className="text-xs font-semibold px-1">
                  Confirm Password
                 </label>
