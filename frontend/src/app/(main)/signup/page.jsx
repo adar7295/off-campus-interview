@@ -2,7 +2,7 @@ import React from 'react'
 
 const Signup = () => {
   return (
-    <div>
+    <div >
       <>
   {/* component */}
   <style
@@ -17,7 +17,7 @@ const Signup = () => {
       style={{ maxWidth: 1000 }}
     >
       <div className="md:flex w-full">
-        <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+        <div className="hidden md:block w-1/2 bg-indigo py-10 px-10">
           <svg
             id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
             data-name="Layer 1"
@@ -217,7 +217,7 @@ const Signup = () => {
             />
           </svg>
         </div>
-        <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+        <div className="w-full md:w-1/2 py-10 px-5 bg-white md:px-10">
           <div className="text-center mb-10">
             <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
             <p>Enter your information to register</p>
@@ -234,7 +234,7 @@ const Signup = () => {
                   </div>
                   <input
                     type="text"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                     placeholder="John"
                   />
                 </div>
@@ -249,7 +249,7 @@ const Signup = () => {
                   </div>
                   <input
                     type="text"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                     placeholder="Smith"
                   />
                 </div>
@@ -266,7 +266,7 @@ const Signup = () => {
                   </div>
                   <input
                     type="email"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                     placeholder="johnsmith@example.com"
                   />
                 </div>
@@ -283,7 +283,7 @@ const Signup = () => {
                   </div>
                   <input
                     type="password"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                     placeholder="************"
                   />
                 </div>
@@ -300,7 +300,7 @@ const Signup = () => {
                   </div>
                   <input
                     type="password"
-                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                    className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                     placeholder="************"
                   />
                 </div>
@@ -308,7 +308,7 @@ const Signup = () => {
             </div>
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
-                <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                <button className="block w-full max-w-xs mx-auto bg-indigo hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
                   REGISTER NOW
                 </button>
               </div>

@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     colors:{
+      'white' : '#ffffff',
+      'indigo' : '#6366F1',
+      'grey' : '#495057',
+      'indigo-700':'#3333cc',
      'blue':{
       50:'#a9d6e5',
       100:'#89c2d9',
@@ -22,7 +26,11 @@ module.exports = {
       450:'#013a63',
       500:'#012a4a',
      },
-    extend:{},
+    
+    extend:{
+      'black' : '#0000',
+    },
+    
     }
   },
   plugins: [require("daisyui")],
