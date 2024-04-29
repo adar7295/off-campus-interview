@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './(main)/navbar'
 
+
 const Home = () => {
   return (
     <>
@@ -112,7 +113,7 @@ const Home = () => {
    <div className="ml-32 w-full flex md:mb-16 lg:w-2/3">
           <div className="w-1/2 h-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
             <img
-              src="/p3.jpeg"
+              src="/p4.jpeg"
               loading="lazy"
               alt="Photo by Kaung Htet"
               className="h-full w-full object-cover object-center"
@@ -124,11 +125,58 @@ const Home = () => {
             <br />
             <br />
             <div className='text-lg bg-gray-300 rounded-lg'>
-            <p className='text-md'>Get Unlimited Application</p> 
+            <p className='text-md flex mr-1'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Get Unlimited Application</p> 
+            </div>
+            <br />
+            
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md flex'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Simplified Job Posting</p> 
             </div>
           </div> 
         </div>
   
+        <div className="ml-44 mt-44 w-full justify-item-end flex md:mb-16 lg:w-2/3">
+        <div className='mr-60  text-black'>
+            <h1 className='font-bold text-3xl'>Post Jobs Here...</h1><br />
+            Revolutionize your hiring
+            <br />
+            <br />
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md flex mr-1'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Get Unlimited Application</p> 
+            </div>
+            <br />
+            
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md flex'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Simplified Job Posting</p> 
+            </div>
+          </div> 
+
+          <div className="w-1/2 h-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
+            <img
+              src="/p4.jpeg"
+              loading="lazy"
+              alt="Photo by Kaung Htet"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+
+          </div>
   {/* product-grid - start */}
   <div className="bg-white py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
