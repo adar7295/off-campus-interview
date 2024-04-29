@@ -45,27 +45,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-        <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
-          <a
-            href="#"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-          >
-            Men
-          </a>
-          <a
-            href="#"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-          >
-            Women
-          </a>
-          <a
-            href="#"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-          >
-            Teens
-          </a>
-        </div>
+      <div className="flex flex-col items-center text-black text-lg font-semibold justify-between gap-8 md:flex-row">
+      "Land the job you've been dreaming of."
         {/* social - start */}
         <div className="flex items-center justify-center gap-4 lg:justify-start">
           <span className="text-sm font-semibold uppercase tracking-widest text-gray-400 sm:text-base">
@@ -128,6 +109,26 @@ const Home = () => {
     </section>
   </div>
   {/* hero - end */}
+   <div className="ml-32 w-full flex md:mb-16 lg:w-2/3">
+          <div className="w-1/2 h-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
+            <img
+              src="/p3.jpeg"
+              loading="lazy"
+              alt="Photo by Kaung Htet"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className='ml-44 px-18 text-black'>
+            <h1 className='font-bold text-3xl'>Post Jobs Here...</h1><br />
+            Revolutionize your hiring
+            <br />
+            <br />
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md'>Get Unlimited Application</p> 
+            </div>
+          </div> 
+        </div>
+  
   {/* product-grid - start */}
   <div className="bg-white py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
