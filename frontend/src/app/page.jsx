@@ -630,7 +630,7 @@ Job Alerts On Phone</p>
               aria-label="logo"
             >
               
-            TALENTO
+            <img src="/logo.png" className='h-12 w-12' alt="" />TALENTO
             </a>
           </div>
           {/* logo - end */}

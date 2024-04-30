@@ -8,8 +8,8 @@ const Navbar = () => {
         <nav className="bg-indigo-500 border border-gray-200 dark:border-gray-700 px-2 sm:px-4 py-2.5 rounded  shadow">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
             <a href="/" className="flex items-center">
-              <span className="self-center flex text-xl font-semibold whitespace-nowrap text-white">
-                <img src='/logo.jpeg ' className='w-10  h-8    mr-3 '></img>TALENTO
+              <span className="self-center flex text-xl mt-2 font-semibold whitespace-nowrap text-white">
+                <img src='/logo.png ' className='w-12  h-12  mr-3 '></img><p className='mt-2'>TALENTO</p>
               </span>
             </a>
             <div className="flex items-center">
