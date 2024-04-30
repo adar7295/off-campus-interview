@@ -23,8 +23,9 @@ const Home = () => {
             job online
           </h1>
           <p className="max-w-md leading-relaxed text-gray-500 xl:text-lg">
-            This is a section of some simple filler text, also known as
-            placeholder text. It shares characteristics of real text.
+            This PlateForm will  help you land your dream job 
+            Easily and effectively... <br />
+            <span className='font-semibold text-black textlg'> Keep Growing with TALENTO..</span>
           </p>
         </div>
         <div className="mb-12 flex w-full md:mb-16 lg:w-2/3">
@@ -121,7 +122,7 @@ const Home = () => {
           </div>
           <div className='ml-44 px-18 text-black'>
             <h1 className='font-bold text-3xl'>Post Jobs Here...</h1><br />
-            Revolutionize your hiring
+            Attract top talent and build your dream team
             <br />
             <br />
             <div className='text-lg bg-gray-300 rounded-lg'>
@@ -139,14 +140,23 @@ Get Unlimited Application</p>
   <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
 </svg>
 Simplified Job Posting</p> 
+            </div>
+            <br />
+            
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md flex'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Effortless Hiering</p> 
             </div>
           </div> 
         </div>
   
         <div className="ml-44 mt-44 w-full justify-item-end flex md:mb-16 lg:w-2/3">
         <div className='mr-60  text-black'>
-            <h1 className='font-bold text-3xl'>Post Jobs Here...</h1><br />
-            Revolutionize your hiring
+            <h1 className='font-bold text-3xl'>Find Jobs Here...</h1><br />
+            Unlock your potential and discover your next career
             <br />
             <br />
             <div className='text-lg bg-gray-300 rounded-lg'>
@@ -154,7 +164,7 @@ Simplified Job Posting</p>
   {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
   <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
 </svg>
-Get Unlimited Application</p> 
+Get Unlimited Oppartunities</p> 
             </div>
             <br />
             
@@ -163,13 +173,22 @@ Get Unlimited Application</p>
   {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
   <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
 </svg>
-Simplified Job Posting</p> 
+Get Hiered Easily</p> 
+            </div>
+            <br />
+            
+            <div className='text-lg bg-gray-300 rounded-lg'>
+            <p className='text-md flex'><svg className="h-6 m-1 w-6 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
+  <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+</svg>
+Job Alerts On Phone</p> 
             </div>
           </div> 
 
           <div className="w-1/2 h-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
             <img
-              src="/p4.jpeg"
+              src="/p5.jpeg"
               loading="lazy"
               alt="Photo by Kaung Htet"
               className="h-full w-full object-cover object-center"
@@ -513,17 +532,8 @@ Simplified Job Posting</p>
               className="inline-flex items-center gap-2 text-xl font-bold text-black md:text-2xl"
               aria-label="logo"
             >
-              <svg
-                width={95}
-                height={94}
-                viewBox="0 0 95 94"
-                className="h-auto w-5 text-indigo-500"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-              </svg>
-              Flowrift
+              
+            TALENTO
             </a>
           </div>
           {/* logo - end */}
@@ -750,7 +760,8 @@ Simplified Job Posting</p>
         {/* nav - end */}
       </div>
       <div className="border-t py-8 text-center text-sm text-gray-400">
-        © 2021 - Present Flowrift. All rights reserved.
+        © 2024
+         - Present Talento. All rights reserved.
       </div>
     </footer>
   </div>
