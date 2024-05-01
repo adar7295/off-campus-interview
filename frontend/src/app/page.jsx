@@ -111,7 +111,7 @@ const Home = () => {
     </section>
   </div>
   {/* hero - end */}
-   <div className="ml-32 w-full flex md:mb-16 lg:w-2/3">
+   <div className="ml-48 w-full flex md:mb-16 lg:w-2/3">
           <div className="w-1/2 h-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
             <img
               src="/p4.jpeg"
@@ -120,7 +120,8 @@ const Home = () => {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <div className='ml-44 px-18 text-black'>
+
+          <div className='ml-64 px-18 text-black'>
             <h1 className='font-bold text-3xl'>Post Jobs Here...</h1><br />
             Attract top talent and build your dream team
             <br />
@@ -153,8 +154,8 @@ Effortless Hiering</p>
           </div> 
         </div>
   
-        <div className="ml-44 mt-44 w-full justify-item-end flex md:mb-16 lg:w-2/3">
-        <div className='mr-60  text-black'>
+        <div className="ml-48 mt-44 w-full justify-item-end flex md:mb-16 lg:w-2/3">
+        <div className='mr-64  text-black'>
             <h1 className='font-bold text-3xl'>Find Jobs Here...</h1><br />
             Unlock your potential and discover your next career
             <br />
