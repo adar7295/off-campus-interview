@@ -270,7 +270,7 @@ const Signup = () => {
               <div className="w-full md:w-1/2 py-10 px-5 bg-blue-250 md:px-10">
                 <div className="text-center mb-10">
                   <h1 className="font-bold text-3xl text-black">REGISTER</h1>
-                  <p>Enter your information to register</p>
+                  <p>Enter your information to Register</p>
                 </div>
                 <div>
                   <div className="flex -mx-3">
