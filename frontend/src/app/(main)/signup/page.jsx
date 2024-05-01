@@ -1,11 +1,56 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-
+const SignupSchema = yup.object().shape({
+  firstName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
+  lastName : Yup.string().min(4,'Enter Valid Last Name').required('Enter Last Name'),
+  email : Yup.string().email('Invalid Email').required('Email is Required'),
+  password : Yup.string().required('Enter Strong Password').min(8, 'Password is too Small')
+  .matches(/[a-z]/, 'Must Include Lowercase').matches(/[A-Z]/, 'Must Include Uppercase')
+  .matches(/\W/, 'Must Include Special Character'),
+  confirmPassword : Yup.string().oneOf([Yup.ref('password'),null], 'Password Must Match')
+  .required('Password is Required')
+});
 
 const Signup = () => {
+
+  const signupForm = useFormik({
+    initialValues : {
+      firstName : '',
+      lastName : '',
+      email : '',
+      password : '',
+      confirmPassword : ''
+    },
+    onSubmit : (values) => {
+      console.log(values);
+
+      fetch("http://localhost:5000/user/add",{
+        method : 'POST',
+        body : JSON.stringify(values),
+        headers : {
+          'content-Type':'application/json'
+        } 
+      })
+      .then((response) => {
+        console.log(response.status);
+        if(response.status === 200){
+          toast.success('User Registered Successfully');
+        }
+        else{
+          toast.error('User Rrgistration Failed');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error('User Registration Failed');
+      });
+    },
+    validationSchema : SignupSchema
+  })
   return (
     <div >
       <>
