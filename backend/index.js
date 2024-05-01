@@ -14,3 +14,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/user', userRouter);
+
+app.get('/add', (req, res)=> {
+    res.send('Response from add');
+});
