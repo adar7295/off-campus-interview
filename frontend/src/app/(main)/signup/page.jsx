@@ -2,9 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 
-const SignupSchema = yup.object().shape({
+const SignupSchema = Yup.object().shape({
   firstName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
   lastName : Yup.string().min(4,'Enter Valid Last Name').required('Enter Last Name'),
   email : Yup.string().email('Invalid Email').required('Email is Required'),
@@ -28,7 +29,7 @@ const Signup = () => {
     onSubmit : (values) => {
       console.log(values);
 
-      fetch("http://localhost:5000/user/add",{
+      fetch("http://localhost:5000/signupData/add",{
         method : 'POST',
         body : JSON.stringify(values),
         headers : {
@@ -272,6 +273,8 @@ const Signup = () => {
                   <h1 className="font-bold text-3xl text-black">REGISTER</h1>
                   <p>Enter your information to Register</p>
                 </div>
+                <form onSubmit={signupForm.handleSubmit} >
+
                 <div>
                   <div className="flex -mx-3">
                     <div className="w-1/2 px-3 mb-5">
@@ -284,9 +287,12 @@ const Signup = () => {
                         </div>
                         <input
                           type="text"
+                          id="firstName"
+                          onChange={signupForm.handleChange}
+                          values={signupForm.values.firstName}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                          placeholder="John"
-                        />
+                          placeholder="First Name"
+                          />
                       </div>
                     </div>
                     <div className="w-1/2 px-3 mb-5">
@@ -299,9 +305,12 @@ const Signup = () => {
                         </div>
                         <input
                           type="text"
+                          id="lastName"
+                          onChange={signupForm.handleChange}
+                          values={signupForm.values.lastName}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                          placeholder="Smith"
-                        />
+                          placeholder="Last Name"
+                          />
                       </div>
                     </div>
                   </div>
@@ -316,9 +325,12 @@ const Signup = () => {
                         </div>
                         <input
                           type="email"
+                          id="email"
+                          onChange={signupForm.handleChange}
+                          values={signupForm.values.eemail}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                          placeholder="johnsmith@example.com"
-                        />
+                          placeholder="email@gmail.com"
+                          />
                       </div>
                     </div>
                   </div>
@@ -333,10 +345,16 @@ const Signup = () => {
                         </div>
                         <input
                           type="password"
+                          id="password"
+                          onChange={signupForm.handleChange}
+                          values={signupForm.values.password}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="************"
-                        />
+                          />
                       </div>
+                      {signupForm.touched.password && (
+                        <small className='text-danger'>{signupForm.errors.password}</small>
+                      )}
                     </div>
                   </div>
                   <div className="flex -mx-3">
@@ -350,20 +368,27 @@ const Signup = () => {
                         </div>
                         <input
                           type="password"
+                          id="confirmPassword"
+                          onChange={signupForm.handleChange}
+                          values={signupForm.values.confirmPassword}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           placeholder="************"
-                        />
+                          />
                       </div>
+                      {signupForm.touched.confirmPassword && (
+                        <small className='text-danger'>{signupForm.errors.confirmPassword}</small>
+                      )}
                     </div>
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                      <button type="submit" className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
                         REGISTER NOW
                       </button>
                     </div>
                   </div>
                 </div>
+              </form>
               </div>
             </div>
           </div>

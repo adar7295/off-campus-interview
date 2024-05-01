@@ -1,10 +1,11 @@
 const { model, Schema } = require('../connection');
 
 const mySchema = ({
-    name : { type : String, required : true},
-    passsword : String,
+    firstName : { type : String, required : true},
+    lastName : { type : String, required : true},
     email : { type : String, unique:true},
+    passsword : String,
     createdAt : { type : Date, default : Date.now}
 });
 
-module.exports=model('user',mySchema);
+module.exports=model('signupData',mySchema);
