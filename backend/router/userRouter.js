@@ -28,24 +28,24 @@ userRouter.post('/authenticate',(req, res) => {
     res.status(500).json(err);
   })
 })
-//getall
-router.get('/getall',(req,res)=>{
-    res.send('Response from user getall');
-  });
+// //getall
+// router.get('/getall',(req,res)=>{
+//     res.send('Response from user getall');
+//   });
   
-  //getbyid
-  router.get('/getbyid',(req,res)=>{
-    res.send('Response from user getbyid');
-  });
+//   //getbyid
+//   router.get('/getbyid',(req,res)=>{
+//     res.send('Response from user getbyid');
+//   });
   
-  //delete
-  router.get('/delete',(req,res)=>{
-    res.send('Response from user delete');
-  });
+//   //delete
+//   router.get('/delete',(req,res)=>{
+//     res.send('Response from user delete');
+//   });
   
-  //update 
-  router.get('/update',(req,res)=>{
-    res.send('Response from user update');
-  });
+//   //update 
+//   router.get('/update',(req,res)=>{
+//     res.send('Response from user update');
+//   });
   
-  module.exports = router;
+  module.exports = userRouter;

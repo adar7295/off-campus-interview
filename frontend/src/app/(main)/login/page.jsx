@@ -1,29 +1,46 @@
-import { useFormik } from 'formik';
+'use client'
 import React from 'react';
+import { useFormik } from 'formik';
+
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const loginForm = useFormik({
     initialValues:{
-      name:"",
+      email:"",
       password:""
     },
     onSubmit:(values) => {
     console.log(values);
-    fetch('http://localhost:5000/signupDatas/authenticate',{
+    fetch('http://localhost:5000/signupData/authenticate',{
       method:'POST',
       body:JSON.stringify(values),
       headers:{
+        'Content-Type': 'application/json'
 
       }
     })
     .then((response) => {
       if(response.status === 200)
       {
+        toast.success('Login Successfull');
+
+        response.json()
+          .then((data) => {
+            sessionStorage.setItem('signupData', JSON.stringify(data));
+            router.push('/'); 
+          }); 
 
       }
+      else {
+        toast.error('Invalid Credentials');
+      }
+
     })  
     .catch((err) =>{
-        
+      console.log(err);
+      toast.error('Something went wrong');
+
     });
     }
   })
@@ -54,6 +71,8 @@ const Login = () => {
                   <p>Enter your information to Login</p>
                 </div>
                 <div>
+                  <form onSubmit={loginForm.handleSubmit}>
+
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
                       <label htmlFor="" className="text-xs font-semibold px-1">
@@ -67,7 +86,7 @@ const Login = () => {
                           type="email"
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="johnsmith@example.com"
-                        />
+                          />
                       </div>
                     </div>
                   </div>
@@ -84,18 +103,19 @@ const Login = () => {
                           type="password"
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="************"
-                        />
+                          />
                       </div>
                     </div>
                   </div>
                   
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                      <button type='submit' className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
                         LOGIN
                       </button>
                     </div>
                   </div>
+                          </form>
                 </div>
               </div>
             </div>
