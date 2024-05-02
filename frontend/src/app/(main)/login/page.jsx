@@ -1,6 +1,32 @@
+import { useFormik } from 'formik';
 import React from 'react';
 
 const Login = () => {
+  const loginForm = useFormik({
+    initialValues:{
+      name:"",
+      password:""
+    },
+    onSubmit:(values) => {
+    console.log(values);
+    fetch('http://localhost:5000/signupDatas/authenticate',{
+      method:'POST',
+      body:JSON.stringify(values),
+      headers:{
+
+      }
+    })
+    .then((response) => {
+      if(response.status === 200)
+      {
+
+      }
+    })  
+    .catch((err) =>{
+        
+    });
+    }
+  })
   return (
     <div>
      <>
