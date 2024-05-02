@@ -4,7 +4,7 @@ const mySchema = ({
     firstName : { type : String, required : true},
     lastName : { type : String, required : true},
     email : { type : String, unique:true},
-    passsword : String,
+    password : String,
     createdAt : { type : Date, default : Date.now}
 });
 

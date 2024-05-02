@@ -29,7 +29,7 @@ const Signup = () => {
     onSubmit : (values) => {
       console.log(values);
 
-      fetch("http://localhost:5000/signupData/add",{
+      fetch("http://localhost:5000/user/add",{
         method : 'POST',
         body : JSON.stringify(values),
         headers : {
@@ -327,7 +327,7 @@ const Signup = () => {
                           type="email"
                           id="email"
                           onChange={signupForm.handleChange}
-                          values={signupForm.values.eemail}
+                          values={signupForm.values.email}
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="email@gmail.com"
                           />
