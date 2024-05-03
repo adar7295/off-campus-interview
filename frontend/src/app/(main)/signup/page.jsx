@@ -26,7 +26,7 @@ const Signup = () => {
       password : '',
       confirmPassword : ''
     },
-    onSubmit : (values) => {
+    onSubmit : (values,{resetForm}) => {
       console.log(values);
 
       fetch("http://localhost:5000/user/add",{
@@ -40,6 +40,7 @@ const Signup = () => {
         console.log(response.status);
         if(response.status === 200){
           toast.success('User Registered Successfully');
+          resetForm();
         }
         else{
           toast.error('User Rrgistration Failed');
