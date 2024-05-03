@@ -3,6 +3,7 @@ const express = require('express');
 const userRouter = require('./router/userRouter');
 const cors = require('cors');
 
+
 // initializing express
 const app = express();
 const port = 5000;
@@ -14,6 +15,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/user', userRouter);
+app.use('/compadd', userRouter);
 
 app.get('/add', (req, res)=> {
     res.send('Response from add');

@@ -7,4 +7,4 @@ const mySchema = ({
     createdAt : { type : Date, default : Date.now}
 });
 
-module.exports=model('signupData',mySchema);
+module.exports=model('companyData',mySchema);

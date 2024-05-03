@@ -5,11 +5,11 @@ import toast from "react-hot-toast";
 import * as Yup from 'yup';
 
 const compSignupSchema = Yup.object().shape({
-  name : Yup.string().min(4,"Enter Full Name").required("Full Name Required"),
-  compEmail : Yup.email().required("Email is Required"),
+  compName : Yup.string().min(4,"Enter Full Name").required("Full Name Required"),
+  compEmail : Yup.string().email().required("Email is Required"),
   Password : Yup.string().min(4,"Enter Strong Password").required("Password is Required").matches(/[a-z]/, 'Must Include Lowercase')
   .matches(/[A-Z]/, 'Must Include Uppercase').matches(/\W/, 'Must Include Special Character'),
-  confirmPassword : Yup.string().oneOf([Yup.ref("password"),null], "password must match").required("Password is Required"),
+  confirmPassword : Yup.string().oneOf([Yup.ref("password"),null], "password must match").required("Password is Required")
   
 })
 const compSignup = () => {
@@ -23,7 +23,7 @@ const compSignupForm = useFormik({
   },
   onSubmit : (values,{resetForm}) => {
     console.log(values);
-    fetch('http://localhost:5000/comp/add',{
+    fetch('http://localhost:5000/user/compadd',{
       method : 'POST',
       body : JSON.stringify(values),
       headers: {
@@ -67,10 +67,13 @@ const compSignupForm = useFormik({
                 >
                   Company Registration
                 </label>
-                <form method="#" action="#" className="mt-10">
+                <form onSubmit={compSignupForm.handleSubmit}>
                   <div>
                     <input
                       type="text"
+                      id="companyName"
+                      onChange={compSignupForm.handleChange}
+                      values={compSignupForm.values.firstName}
                       placeholder="Company Name"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-lg shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
@@ -78,6 +81,9 @@ const compSignupForm = useFormik({
                   <div className="mt-7">
                     <input
                       type="email"
+                      id="compEmail"
+                      onChange={compSignupForm.handleChange}
+                      values={compSignupForm.values.compEmail}
                       placeholder="Email"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
@@ -85,6 +91,9 @@ const compSignupForm = useFormik({
                   <div className="mt-7">
                     <input
                       type="password"
+                      id="password"
+                      onChange={compSignupForm.handleChange}
+                      values={compSignupForm.values.password}
                       placeholder="Password"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
@@ -92,12 +101,15 @@ const compSignupForm = useFormik({
                   <div className="mt-7">
                     <input
                       type="password"
+                      id="comfirmPassword"
+                      onChange={compSignupForm.handleChange}
+                      values={compSignupForm.values.confirmPassword}
                       placeholder="Confirm Password"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
                   </div>
                   <div className="mt-7">
-                    <button className="bg-indigo-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                    <button type = "submit" className="bg-indigo-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                       Register
                     </button>
                   </div>
