@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 const Model = require('../model/userModel');
+const companyModel = require('../model/compModel');
 
 userRouter.post('/add', (req, res) => {
   console.log(req.body);
@@ -16,7 +17,7 @@ userRouter.post('/add', (req, res) => {
 
 userRouter.post('/compadd', (req, res) => {
   console.log(req.body);
-  new Model(req.body).save()
+  new companyModel(req.body).save()
     .then((result) => {
       res.status(200).json(result);
     })
@@ -52,6 +53,15 @@ userRouter.get('/getall', (req, res) => {
     });
 });
 
+//getall
+userRouter.get('/getall', (req, res) => {
+  companyModel.find()
+    .then((result) => {
+      res.status(200).json(result)
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
 //   //getbyid
 //   router.get('/getbyid',(req,res)=>{
 //     res.send('Response from user getbyid');
