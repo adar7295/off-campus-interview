@@ -14,6 +14,20 @@ router.post('/add', (req, res) => {
       });
   });
 
+  router.post('/authenticate', (req, res) => {
+    console.log(req.body);
+  
+    companyModel.findOne(req.body)
+      .then((result) => {
+        if (result) res.status(200).json(result);
+        else res.status(400).json({ message: 'Login Failed' });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      })
+  })
+
   //getall
 router.get('/getall', (req, res) => {
     companyModel.find()

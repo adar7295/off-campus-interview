@@ -1,6 +1,55 @@
+'use client'
 import React from "react";
+import { useFormik } from 'formik';
+
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+
 
 const compLogin = () => {
+
+
+    const router = useRouter();
+  
+    const loginForm = useFormik({
+      initialValues: {
+        compEmail: "",
+        password: ""
+      },
+      onSubmit: (values) => {
+        console.log(values);
+        fetch('http://localhost:5000/company/authenticate', {
+          method: 'POST',
+          body: JSON.stringify(values),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              toast.success('Login Successfull');
+  
+              response.json()
+                .then((data) => {
+                  
+                  sessionStorage.setItem('signupData', JSON.stringify(data));
+                  router.push('/');
+                });
+  
+            }
+            else {
+              toast.error('Invalid Credentials');
+            }
+  
+          })
+          .catch((err) => {
+            console.log(err);
+            toast.error('Something went wrong');
+  
+          });
+        }
+    })
+  
     return(
            <>
            <>
@@ -18,18 +67,24 @@ const compLogin = () => {
           >
             Login
           </label>
-          <form method="#" action="#" className="mt-10">
+          <form onSubmit={loginForm.handleSubmit}>
             <div>
               <input
                 type="email"
-                placeholder="Correo electronico"
+                id="compEmail"
+                onChange={loginForm.handleChange}
+                value={loginForm.values.compEmail}
+                placeholder="Enter your Email"
                 className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
             </div>
             <div className="mt-7">
               <input
                 type="password"
-                placeholder="Contraseña"
+                id="password"
+                onChange={loginForm.handleChange}
+                value={loginForm.values.password}
+                placeholder="Enter your Password"
                 className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
             </div>
@@ -44,26 +99,26 @@ const compLogin = () => {
                   className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   name="remember"
                 />
-                <span className="ml-2 text-sm text-gray-600">Recuerdame</span>
+                <span className="ml-2 text-sm text-gray-600">Remember me</span>
               </label>
               <div className="w-full text-right">
                 <a
                   className="underline text-sm text-gray-600 hover:text-gray-900"
                   href="#"
                 >
-                  ¿Olvidó su contraseña?
+                  Forgot password?
                 </a>
               </div>
             </div>
             <div className="mt-7">
-              <button className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+              <button type="submit" className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                 Login
               </button>
             </div>
             <div className="flex mt-7 items-center text-center">
               <hr className="border-gray-300 border-1 w-full rounded-md" />
               <label className="block font-medium text-sm text-gray-600 w-full">
-                Accede con
+                Login via
               </label>
               <hr className="border-gray-300 border-1 w-full rounded-md" />
             </div>
@@ -77,12 +132,12 @@ const compLogin = () => {
             </div>
             <div className="mt-7">
               <div className="flex justify-center items-center">
-                <label className="mr-2">¿Eres nuevo?</label>
+                <label className="mr-2">Don't have an account?</label>
                 <a
                   href="#"
                   className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
                 >
-                  Crea una cuenta
+                  Signup
                 </a>
               </div>
             </div>
