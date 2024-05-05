@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
-const SignupSchema = Yup.object().shape({
+const compSignupSchema = Yup.object().shape({
   compName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
   
   compEmail : Yup.string().email('Invalid Email').required('Email is Required'),
@@ -50,7 +50,7 @@ const compSignup = () => {
         toast.error('User Registration Failed');
       });
     },
-    validationSchema : SignupSchema
+    validationSchema : compSignupSchema
   })
   
   return (
