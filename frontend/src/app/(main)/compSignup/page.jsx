@@ -1,55 +1,57 @@
-'use client'
-import { useFormik } from "formik";
-import React from "react";
-import toast from "react-hot-toast";
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 
-const compSignupSchema = Yup.object().shape({
-  compName : Yup.string().min(4,"Enter Full Name").required("Full Name Required"),
-  compEmail : Yup.string().email().required("Email is Required"),
-  Password : Yup.string().min(4,"Enter Strong Password").required("Password is Required").matches(/[a-z]/, 'Must Include Lowercase')
-  .matches(/[A-Z]/, 'Must Include Uppercase').matches(/\W/, 'Must Include Special Character'),
-  confirmPassword : Yup.string().oneOf([Yup.ref("password"),null], "password must match").required("Password is Required")
+const SignupSchema = Yup.object().shape({
+  compName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
   
-})
+  compEmail : Yup.string().email('Invalid Email').required('Email is Required'),
+  password : Yup.string().required('Enter Strong Password').min(8, 'Password is too Small')
+  .matches(/[a-z]/, 'Must Include Lowercase').matches(/[A-Z]/, 'Must Include Uppercase')
+  .matches(/\W/, 'Must Include Special Character'),
+  confirmPassword : Yup.string().oneOf([Yup.ref('password'),null], 'Password Must Match')
+  .required('Password is Required')
+});
+
 const compSignup = () => {
 
-const compSignupForm = useFormik({
-  initialValues:{
-    compName:"",
-    compEmail:"",
-    password:"",
-    confirmPassword:"",
-  },
-  onSubmit : (values,{resetForm}) => {
-    console.log(values);
-    fetch('http://localhost:5000/user/compadd',{
-      method : 'POST',
-      body : JSON.stringify(values),
-      headers: {
-        'content-type' : 'application/json'
-      }
-    })
-    .then((response) => {
-       console.log(response.status);
-       if(response.status ===200)
-       {
-        toast.success("user Registered Successfuly");
-        resetForm();
-       }
-       else{
-        toast.error("User Registeration failed");
-       }
-    })
-    .catch((err) => {
-      console.log(err);
-      toast.error("User Registeration failed");
-    });
-    
-  },
-  validationSchema : compSignupSchema
-})
+  const compSignupForm = useFormik({
+    initialValues : {
+      compName : '',
+      compEmail : '',
+      password : '',
+      confirmPassword : ''
+    },
+    onSubmit : (values,{resetForm}) => {
+      console.log(values);
 
+      fetch("http://localhost:5000/user/add",{
+        method : 'POST',
+        body : JSON.stringify(values),
+        headers : {
+          'content-Type':'application/json'
+        } 
+      })
+      .then((response) => {
+        console.log(response.status);
+        if(response.status === 200){
+          toast.success('User Registered Successfully');
+          resetForm();
+        }
+        else{
+          toast.error('User Rrgistration Failed');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error('User Registration Failed');
+      });
+    },
+    validationSchema : SignupSchema
+  })
   
   return (
     <>
@@ -73,7 +75,7 @@ const compSignupForm = useFormik({
                       type="text"
                       id="companyName"
                       onChange={compSignupForm.handleChange}
-                      values={compSignupForm.values.firstName}
+                      values={compSignupForm.values.compName}
                       placeholder="Company Name"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-lg shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
@@ -109,7 +111,7 @@ const compSignupForm = useFormik({
                     />
                   </div>
                   <div className="mt-7">
-                    <button type = "submit" className="bg-indigo-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                    <button type="submit" className="bg-indigo-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                       Register
                     </button>
                   </div>
