@@ -6,53 +6,52 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
 const compSignupSchema = Yup.object().shape({
-  compName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
-  
-  compEmail : Yup.string().email('Invalid Email').required('Email is Required'),
-  password : Yup.string().required('Enter Strong Password').min(8, 'Password is too Small')
-  .matches(/[a-z]/, 'Must Include Lowercase').matches(/[A-Z]/, 'Must Include Uppercase')
-  .matches(/\W/, 'Must Include Special Character'),
-  confirmPassword : Yup.string().oneOf([Yup.ref('password'),null], 'Password Must Match')
-  .required('Password is Required')
+  compName: Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
+
+  compEmail: Yup.string().email('Invalid Email').required('Email is Required'),
+  password: Yup.string().required('Enter Strong Password').min(8, 'Password is too Small')
+    .matches(/[a-z]/, 'Must Include Lowercase').matches(/[A-Z]/, 'Must Include Uppercase')
+    .matches(/\W/, 'Must Include Special Character'),
+  confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Password Must Match')
+    .required('Password is Required')
 });
 
 const compSignup = () => {
 
   const compSignupForm = useFormik({
-    initialValues : {
-      compName : '',
-      compEmail : '',
-      password : '',
-      confirmPassword : ''
+    initialValues: {
+      compName: '',
+      compEmail: '',
+      password: '',
+      confirmPassword: ''
     },
-    onSubmit : (values,{resetForm}) => {
+    onSubmit: (values) => {
       console.log(values);
 
-      fetch("http://localhost:5000/user/add",{
-        method : 'POST',
-        body : JSON.stringify(values),
-        headers : {
-          'content-Type':'application/json'
-        } 
-      })
-      .then((response) => {
-        console.log(response.status);
-        if(response.status === 200){
-          toast.success('User Registered Successfully');
-          resetForm();
-        }
-        else{
-          toast.error('User Rrgistration Failed');
+      fetch("http://localhost:5000/company/add", {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'content-Type': 'application/json'
         }
       })
-      .catch((err) => {
-        console.log(err);
-        toast.error('User Registration Failed');
-      });
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success('User Registered Successfully');
+          }
+          else {
+            toast.error('User Rrgistration Failed');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error('User Registration Failed');
+        });
     },
-    validationSchema : compSignupSchema
+    validationSchema: compSignupSchema
   })
-  
+
   return (
     <>
       <>
@@ -73,12 +72,16 @@ const compSignup = () => {
                   <div>
                     <input
                       type="text"
-                      id="companyName"
+                      id="compName"
                       onChange={compSignupForm.handleChange}
                       values={compSignupForm.values.compName}
                       placeholder="Company Name"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-lg shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
+                    {
+                      compSignupForm.touched.compName &&
+                      <small className='text-sm text-red-500'>{compSignupForm.errors.compName}</small>
+                    }
                   </div>
                   <div className="mt-7">
                     <input
@@ -89,6 +92,10 @@ const compSignup = () => {
                       placeholder="Email"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
+                    {
+                      compSignupForm.touched.compEmail &&
+                      <small className='text-sm text-red-500'>{compSignupForm.errors.compEmail}</small>
+                    }
                   </div>
                   <div className="mt-7">
                     <input
@@ -99,16 +106,24 @@ const compSignup = () => {
                       placeholder="Password"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
+                    {
+                      compSignupForm.touched.password &&
+                      <small className='text-sm text-red-500'>{compSignupForm.errors.password}</small>
+                    }
                   </div>
                   <div className="mt-7">
                     <input
                       type="password"
-                      id="comfirmPassword"
+                      id="confirmPassword"
                       onChange={compSignupForm.handleChange}
                       values={compSignupForm.values.confirmPassword}
                       placeholder="Confirm Password"
                       className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                     />
+                    {
+                      compSignupForm.touched.confirmPassword &&
+                      <small className='text-sm text-red-500'>{compSignupForm.errors.confirmPassword}</small>
+                    }
                   </div>
                   <div className="mt-7">
                     <button type="submit" className="bg-indigo-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">

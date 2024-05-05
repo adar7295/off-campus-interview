@@ -1,6 +1,7 @@
 // import Express
 const express = require('express');
 const userRouter = require('./router/userRouter');
+const companyRouter = require('./router/companyRouter');
 const cors = require('cors');
 
 
@@ -15,7 +16,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/user', userRouter);
-app.use('/compadd', userRouter);
+app.use('/company', companyRouter);
 
 app.get('/add', (req, res)=> {
     res.send('Response from add');
