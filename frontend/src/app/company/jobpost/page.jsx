@@ -29,7 +29,10 @@ const Jobpost = () => {
                   <p>Enter your information to Login</p>
                 </div>
                 <div>
+
+                <div className=''>
                   <form >
+                    <div>
 
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
@@ -43,10 +46,10 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter Name of Company"
-                          />
+                            />
                         </div>
                       </div>
                       
@@ -63,10 +66,10 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="johnsmith@example.com"
-                          />
+                            />
                         </div>
                       </div>
                       
@@ -83,10 +86,10 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Designation"
-                          />
+                            />
                         </div>
                       </div>
                       
@@ -103,18 +106,21 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="johnsmith@example.com"
-                          />
+                            />
                         </div>
                       </div>
                       
                     </div>
+                    </div>
+                    <div>
+
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
                         <label htmlFor="" className="text-xs font-semibold px-1">
-                          Email
+                          Job Type
                         </label>
                         <div className="flex">
                           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -123,10 +129,10 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="johnsmith@example.com"
-                          />
+                            placeholder="Part Time/Full Time"
+                            />
                         </div>
                       </div>
                       
@@ -134,7 +140,7 @@ const Jobpost = () => {
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
                         <label htmlFor="" className="text-xs font-semibold px-1">
-                          Password
+                          Salary
                         </label>
                         <div className="flex">
                           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -143,14 +149,54 @@ const Jobpost = () => {
                           <input
                             type="password"
                             id="password"
-                           
+                            
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="************"
-                          />
+                            placeholder="Enter Salary"
+                            />
                         </div>
                       </div>
                     </div>
-
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Educational Qualification
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
+                          </div>
+                          <input
+                            type="password"
+                            id="password"
+                            
+                            className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
+                            placeholder="************"
+                            />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Work Experience
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
+                          </div>
+                          <input
+                            type="password"
+                            id="password"
+                            
+                            className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
+                            placeholder="************"
+                            />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  </div>
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
                         <button type='submit' className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
@@ -158,7 +204,6 @@ const Jobpost = () => {
                         </button>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
