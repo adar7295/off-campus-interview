@@ -30,7 +30,7 @@ const Jobpost = () => {
                 </div>
                 <div>
 
-                <div className=''>
+                <div>
                   <form >
                     <div>
 
