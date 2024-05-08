@@ -50,7 +50,8 @@ const jobPostForm= useFormik({
         {
           toast.error("job Posting Failed");
         }
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.log(err);
       toast.error("job Posting Failed");
     });
