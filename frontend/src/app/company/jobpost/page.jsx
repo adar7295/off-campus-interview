@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Jobpost = () => {
+
+
+  
   return (
     <div>
         <div>
@@ -25,8 +28,8 @@ const Jobpost = () => {
               </div>
               <div className="w-full md:w-1/2 py-10 px-5 bg-blue-250 md:px-10">
                 <div className="text-center mb-10">
-                  <h1 className="font-bold text-3xl text-black">Login</h1>
-                  <p>Enter your information to Login</p>
+                  <h1 className="font-bold text-3xl text-black">Post Jobs here</h1>
+                  <p>Enter information about Job </p>
                 </div>
                 <div>
 
@@ -44,8 +47,8 @@ const Jobpost = () => {
                             <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="company"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter Name of Company"
@@ -84,8 +87,8 @@ const Jobpost = () => {
                             <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="designation"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Designation"
@@ -104,11 +107,11 @@ const Jobpost = () => {
                             <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="numberOfEntries"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="johnsmith@example.com"
+                            placeholder="Enter no. of entry"
                             />
                         </div>
                       </div>
@@ -127,8 +130,8 @@ const Jobpost = () => {
                             <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="jobType"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Part Time/Full Time"
@@ -147,8 +150,8 @@ const Jobpost = () => {
                             <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="password"
-                            id="password"
+                            type="text"
+                            id="salary"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter Salary"
@@ -166,11 +169,11 @@ const Jobpost = () => {
                             <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="password"
-                            id="password"
+                            type="text"
+                            id="eduQualification"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="************"
+                            placeholder="Required Educational qualification"
                             />
                         </div>
                       </div>
@@ -185,11 +188,11 @@ const Jobpost = () => {
                             <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
                           </div>
                           <input
-                            type="password"
-                            id="password"
+                            type="text"
+                            id="workExperience"
                             
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="************"
+                            placeholder="Require work experience"
                             />
                         </div>
                       </div>
