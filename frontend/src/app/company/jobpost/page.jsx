@@ -2,6 +2,7 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 
 const jobPostSchema = Yup.object().shape({
   company: Yup.string().min(4, 'Enter Valid Company Name').required('Enter your Company Name'),

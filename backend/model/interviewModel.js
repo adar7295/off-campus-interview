@@ -13,4 +13,4 @@ const mySchema = ({
     createdAt : { type : Date, default : Date.now}
 });
 
-module.exports=model('companyData',mySchema);
+module.exports=model('jobpostdata',mySchema);
