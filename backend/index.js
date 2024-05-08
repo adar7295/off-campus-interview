@@ -2,6 +2,8 @@
 const express = require('express');
 const userRouter = require('./router/userRouter');
 const companyRouter = require('./router/companyRouter');
+const interviewRouter = require('./router/interviewRouter');
+
 const cors = require('cors');
 
 
@@ -17,6 +19,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/company', companyRouter);
+app.use('/jobpost', interviewRouter);
 
 app.get('/add', (req, res)=> {
     res.send('Response from add');

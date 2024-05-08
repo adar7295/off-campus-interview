@@ -1,9 +1,63 @@
+'use client'
+import { useFormik } from 'formik'
 import React from 'react'
+import * as Yup from 'yup';
+
+const jobPostSchema = Yup.object().shape({
+  company: Yup.string().min(4, 'Enter Valid Company Name').required('Enter your Company Name'),
+
+  email: Yup.string().email('Invalid Email').required('Enter Email'),
+  designation: Yup.string().required('Enter Designation'),
+  numberOfEntries: Yup.string().required('Enter Number Of Entries'),
+  jobType: Yup.string().required("Enter Job Type"),
+  salary: Yup.string().required("Enter Salary"),
+  eduQualification: Yup.string().required("Enter Educational qualification"),
+  workExperience: Yup.string().required("Enter required Work Experience"),
+  location: Yup.string().required("Enter Location"),
+});
 
 const Jobpost = () => {
 
+const jobPostForm= useFormik({
+  initialValues:{
+    company:'',
+    email:'',
+    designation:'',
+    numberOfEntries:'',
+    jobType:'',
+    salary:'',
+    eduQualification:'',
+    workExperience:'',
+    location:'',
+  },
+  onSubmit : (values)=>{
+    console.log(values);
+    
+    fetch('http://localhost:5000/jobpost/add',{
+      method:'POST',
+      body: JSON.stringify(values),
+      header:{
+        'content type':'application/json'
+      }
+    })
+    .then((response) => {
+      console.log(response.status);
+      if(response.status === 200)
+        {
+          toast.success("job Posted Successfully");
+        }
+        else
+        {
+          toast.error("job Posting Failed");
+        }
+    }).catch((err) => {
+      console.log(err);
+      toast.error("job Posting Failed");
+    });
+  },
+  validationSchema : jobPostSchema
+})
 
-  
   return (
     <div>
         <div>
@@ -33,8 +87,8 @@ const Jobpost = () => {
                 </div>
                 <div>
 
+                  <form onSubmit={jobPostForm.handleSubmit}>
                 <div>
-                  <form >
                     <div>
 
                     <div className="flex -mx-3">
@@ -49,10 +103,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="company"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.company}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter Name of Company"
                             />
+                           { 
+                           jobPostForm.touched.company &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.company}</small>
+                           }
                         </div>
                       </div>
                       
@@ -69,10 +128,15 @@ const Jobpost = () => {
                           <input
                             type="email"
                             id="email"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.email}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="johnsmith@example.com"
                             />
+                             { 
+                           jobPostForm.touched.email &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.email}</small>
+                           }
                         </div>
                       </div>
                       
@@ -89,10 +153,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="designation"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.designation}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Designation"
                             />
+                             { 
+                           jobPostForm.touched.designation &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.designation}</small>
+                           }
                         </div>
                       </div>
                       
@@ -109,10 +178,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="numberOfEntries"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.numberOfEntries}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter no. of entry"
                             />
+                             { 
+                           jobPostForm.touched.numberOfEntries &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.numberOfEntries}</small>
+                           }
                         </div>
                       </div>
                       
@@ -132,10 +206,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="jobType"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.jobType}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Part Time/Full Time"
                             />
+                             { 
+                           jobPostForm.touched.jobType &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.jobType}</small>
+                           }
                         </div>
                       </div>
                       
@@ -152,10 +231,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="salary"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.salary}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Enter Salary"
                             />
+                             { 
+                           jobPostForm.touched.salary &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.salary}</small>
+                           }
                         </div>
                       </div>
                     </div>
@@ -171,10 +255,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="eduQualification"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.eduQualification}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Required Educational qualification"
                             />
+                             { 
+                           jobPostForm.touched.eduQualification &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.eduQualification}</small>
+                           }
                         </div>
                       </div>
                     </div>
@@ -190,10 +279,15 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="workExperience"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.workExperience}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="Require work experience"
                             />
+                             { 
+                           jobPostForm.touched.workExperience &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.workExperience}</small>
+                           }
                         </div>
                       </div>
                     </div>
@@ -209,15 +303,19 @@ const Jobpost = () => {
                           <input
                             type="text"
                             id="location"
-                            
+                            onChange={jobPostForm.handleChange}
+                            values={jobPostForm.values.location}
                             className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                             placeholder="location"
                             />
+                             { 
+                           jobPostForm.touched.location &&
+                           <small className='text-sm text-red-500'>{jobPostForm.errors.location}</small>
+                           }
                         </div>
                       </div>
                     </div>
                   </div>
-                  </form>
                   </div>
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
@@ -226,6 +324,7 @@ const Jobpost = () => {
                         </button>
                       </div>
                     </div>
+                  </form>
                 </div>
               </div>
             </div>
