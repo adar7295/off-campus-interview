@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
 const jobPostSchema = Yup.object().shape({
-  company: Yup.string().min(4, 'Enter Valid Company Name').required('Enter your Company Name'),
 
   email: Yup.string().email('Invalid Email').required('Enter Email'),
   designation: Yup.string().required('Enter Designation'),
@@ -21,7 +20,7 @@ const Jobpost = () => {
 
 const jobPostForm= useFormik({
   initialValues:{
-    company:'',
+    
     email:'',
     designation:'',
     numberOfEntries:'',
@@ -37,8 +36,8 @@ const jobPostForm= useFormik({
     fetch('http://localhost:5000/jobpost/add',{
       method:'POST',
       body: JSON.stringify(values),
-      header:{
-        'content type':'application/json'
+      headers:{
+        'Content-Type':'application/json'
       }
     })
     .then((response) => {
@@ -93,31 +92,7 @@ const jobPostForm= useFormik({
                 <div>
                     <div>
 
-                    <div className="flex -mx-3">
-                      <div className="w-full px-3 mb-5">
-                        <label htmlFor="" className="text-xs font-semibold px-1">
-                          Company name
-                        </label>
-                        <div className="flex">
-                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <i className="mdi mdi-email-outline text-gray-400 text-lg" />
-                          </div>
-                          <input
-                            type="text"
-                            id="company"
-                            onChange={jobPostForm.handleChange}
-                            values={jobPostForm.values.company}
-                            className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
-                            placeholder="Enter Name of Company"
-                            />
-                           { 
-                           jobPostForm.touched.company &&
-                           <small className='text-sm text-red-500'>{jobPostForm.errors.company}</small>
-                           }
-                        </div>
-                      </div>
-                      
-                    </div>
+                    
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
                         <label htmlFor="" className="text-xs font-semibold px-1">

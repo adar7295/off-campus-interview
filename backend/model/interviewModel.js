@@ -1,7 +1,7 @@
 const { model, Schema, Types } = require('../connection');
 
 const mySchema = ({
-    company : { type : Types.ObjectId, ref : ''},
+    company : { type : Types.ObjectId, ref : 'companyData'},
     email:String,
     designation: String,
     numberOfEntries:String,
@@ -13,4 +13,4 @@ const mySchema = ({
     createdAt : { type : Date, default : Date.now}
 });
 
-module.exports=model('jobpostdata',mySchema);
+module.exports=model('jobpostcollection',mySchema);
