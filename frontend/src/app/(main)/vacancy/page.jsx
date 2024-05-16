@@ -36,7 +36,7 @@ const Vacancy = () => {
             />
           </div>
           <h2 className="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0">
-            {job.email}
+            {job.designation}
           </h2>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores
