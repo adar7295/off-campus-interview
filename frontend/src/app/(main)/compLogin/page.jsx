@@ -32,8 +32,8 @@ const compLogin = () => {
               response.json()
                 .then((data) => {
                   
-                  sessionStorage.setItem('signupData', JSON.stringify(data));
-                  router.push('/');
+                  sessionStorage.setItem('company', JSON.stringify(data));
+                  router.push('/company/jobpost');
                 });
   
             }
