@@ -2,7 +2,7 @@ const { model, Schema, Types } = require('../connection');
 
 const mySchema = ({
     company : { type : Types.ObjectId, ref : 'companyData'},
-    email:String,
+    jobDescription:String,
     designation: String,
     numberOfEntries:String,
     jobType: String,
