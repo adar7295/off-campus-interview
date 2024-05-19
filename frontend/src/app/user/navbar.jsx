@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const userNavbar = () => {
+const UserNavbar = () => {
   return (
     <div>
       <>
@@ -100,5 +100,5 @@ const userNavbar = () => {
   )
 }
 
-export default userNavbar;
+export default UserNavbar;
     
