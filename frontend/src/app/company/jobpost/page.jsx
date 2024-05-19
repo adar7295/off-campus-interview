@@ -35,7 +35,7 @@ const Jobpost = () => {
       workExperience: '',
       location: '',
     },
-    onSubmit: (values) => {
+    onSubmit: (values,{resetForm}) => {
       console.log(values);
 
       fetch('http://localhost:5000/jobpost/add', {
@@ -49,6 +49,7 @@ const Jobpost = () => {
           console.log(response.status);
           if (response.status === 200) {
             toast.success("job Posted Successfully");
+            resetForm();
           }
           else {
             toast.error("job Posting Failed");
@@ -101,7 +102,7 @@ const Jobpost = () => {
                               <label htmlFor="" className="text-xs font-semibold px-1">
                                 Job Description
                               </label>
-                              <div className="flex">
+                              <div className="flex ">
                                 <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                   <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                                 </div>
@@ -111,11 +112,15 @@ const Jobpost = () => {
                                   rows={4}
                                   onChange={jobPostForm.handleChange}
                                   values={jobPostForm.values.jobDescription}
-                                  className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
+                                  className="bg-white  w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Add Some Details..."
                                   defaultValue={''}
                                 />
-                               
+                            
+                                
+                                 </div>
+                               <div>
+
                                 {
                                   jobPostForm.touched.jobDescription &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.jobDescription}</small>
@@ -141,12 +146,14 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Designation"
                                 />
-                                
+                                </div>
+                                <div>
+
                                 {
                                   jobPostForm.touched.designation &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.designation}</small>
                                 }
-                              </div>
+                                </div>
                             </div>
 
                           </div>
@@ -167,7 +174,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Enter no. of entry"
                                 />
-                                
+                                </div>
+                                <div>
                                 {
                                   jobPostForm.touched.numberOfEntries &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.numberOfEntries}</small>
@@ -196,7 +204,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Part Time/Full Time"
                                 />
-                                
+                                 </div>
+                                <div>
                                 {
                                   jobPostForm.touched.jobType &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.jobType}</small>
@@ -222,7 +231,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Enter Salary"
                                 />
-                                
+                                 </div>
+                                <div>
                                 {
                                   jobPostForm.touched.salary &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.salary}</small>
@@ -247,7 +257,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Required Educational qualification"
                                 />
-                                
+                                 </div>
+                                <div>
                                 {
                                   jobPostForm.touched.eduQualification &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.eduQualification}</small>
@@ -272,7 +283,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Require work experience"
                                 />
-                              
+                               </div>
+                                <div>
                                 {
                                   jobPostForm.touched.workExperience &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.workExperience}</small>
@@ -297,7 +309,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="location"
                                 />
-                                
+                                 </div>
+                                <div>
                                 {
                                   jobPostForm.touched.location &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.location}</small>

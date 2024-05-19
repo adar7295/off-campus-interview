@@ -39,9 +39,17 @@ const Vacancy = () => {
             {job.designation}
           </h2>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores
-            deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi
-            hic, suscipit in a veritatis pariatur minus consequuntur!
+          
+          <div className='gap-4 flex'>
+          <label className='font-semibold'> Job Type : {job.jobType} </label>
+          <div>
+          <label className='font-semibold'> Qualification : {job.eduQualification} </label> 
+          </div>
+          </div>
+          <div>
+          <label className='font-semibold'> Entries : {job.numberOfEntries} </label>
+          </div>
+           {job.jobDescription}
           </p>
           <div className="flex justify-end mt-4">
             <a
@@ -50,7 +58,7 @@ const Vacancy = () => {
               tabIndex={0}
               role="link"
             >
-              John Doe
+             Learn More
             </a>
           </div>
         </div>
