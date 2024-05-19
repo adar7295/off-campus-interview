@@ -31,7 +31,7 @@ const Login = () => {
               .then((data) => {
                 
                 sessionStorage.setItem('signupData', JSON.stringify(data));
-                router.push('/');
+                router.push('/user/profile');
               });
 
           }
