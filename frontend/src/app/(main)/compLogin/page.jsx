@@ -33,7 +33,7 @@ const compLogin = () => {
                 .then((data) => {
                   
                   sessionStorage.setItem('company', JSON.stringify(data));
-                  router.push('/company/jobpost');
+                  router.push('/company/information');
                 });
   
             }
