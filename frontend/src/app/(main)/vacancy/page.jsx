@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 
@@ -52,14 +53,14 @@ const Vacancy = () => {
            {job.jobDescription}
           </p>
           <div className="flex justify-end mt-4">
-            <a
-              href="#"
+            <Link
+              href="vacancy-details/._id"
               className="text-lg font-medium text-blue-600 dark:text-blue-300"
               tabIndex={0}
               role="link"
             >
              Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </div>

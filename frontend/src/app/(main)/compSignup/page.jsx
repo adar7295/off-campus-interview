@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
@@ -138,11 +138,8 @@ const compSignup = () => {
                     <hr className="border-gray-300 border-1 w-full rounded-md" />
                   </div>
                   <div className="flex mt-7 justify-center w-full">
-                    <button className="mr-5 bg-indigo-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                      Facebook
-                    </button>
                     <button className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                      Google
+                    <Link href='/signup'> Looking for a Job?</Link>
                     </button>
                   </div>
                   <div className="mt-7">

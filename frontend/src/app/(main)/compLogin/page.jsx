@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import { useFormik } from 'formik';
-
+import Link from "next/link";     
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
@@ -33,7 +33,7 @@ const compLogin = () => {
                 .then((data) => {
                   
                   sessionStorage.setItem('company', JSON.stringify(data));
-                  router.push('/company/information');
+                  router.push('/company/jobpost');
                 });
   
             }
@@ -75,7 +75,7 @@ const compLogin = () => {
                 onChange={loginForm.handleChange}
                 value={loginForm.values.compEmail}
                 placeholder="Enter your Email"
-                className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-lg shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
             </div>
             <div className="mt-7">
@@ -123,11 +123,8 @@ const compLogin = () => {
               <hr className="border-gray-300 border-1 w-full rounded-md" />
             </div>
             <div className="flex mt-7 justify-center w-full">
-              <button className="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                Facebook
-              </button>
               <button className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                Google
+               <Link href='/login'> Looking for a Job?</Link>
               </button>
             </div>
             <div className="mt-7">
