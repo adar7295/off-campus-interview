@@ -54,7 +54,7 @@ const Vacancy = () => {
           </p>
           <div className="flex justify-end mt-4">
             <Link
-              href="vacancy-details/._id"
+              href={`/vacancy-details/${job._id}`}
               className="text-lg font-medium text-blue-600 dark:text-blue-300"
               tabIndex={0}
               role="link"
