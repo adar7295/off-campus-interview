@@ -17,8 +17,7 @@ router.post('/add', (req, res) => {
 //getall
 
 router.get('/getall', (req, res) => {
-  Model.find()
-
+  Model.find().populate('company')
     .then((result) => {
       res.status(200).json(result);
     })

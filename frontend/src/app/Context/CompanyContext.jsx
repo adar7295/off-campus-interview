@@ -1,26 +1,26 @@
 import { useRouter } from "next/navigation";
-import { createContext, useContext,useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const CompanyContext = createContext()
 
-export const CompanyProvider = ({children}) => {
-    const [ currentCompany ,setcurrentCompany ] = useState (
+export const CompanyProvider = ({ children }) => {
+    const router = useRouter();
+    const [currentCompany, setCurrentCompany] = useState(
         JSON.parse(sessionStorage.getItem('company'))
     );
-const router = useRouter(); 
-    const [ loggedIn , setLoggedIn ] = useState(currentCompany !== null)
+    const [companyLoggedIn, setCompanyLoggedIn] = useState(currentCompany !== null)
 
-    const logout = () => {
+    const companyLogout = () => {
         sessionStorage.removeItem('company');
-        setLoggedIn(false)
+        setCompanyLoggedIn(false)
         router.push('/compLogin')
     }
-return (
-    <CompanyContext.Provider value = {{loggedIn , setLoggedIn ,currentCompany,setcurrentCompany}}>
-        {children}
-    </CompanyContext.Provider>
-)
+    return (
+        <CompanyContext.Provider value={{ companyLoggedIn, setCompanyLoggedIn, currentCompany, setCurrentCompany, companyLogout }}>
+            {children}
+        </CompanyContext.Provider>
+    )
 }
 
-const useCompanyContext = () => useContext(CompanyContext); 
+const useCompanyContext = () => useContext(CompanyContext);
 export default useCompanyContext;
