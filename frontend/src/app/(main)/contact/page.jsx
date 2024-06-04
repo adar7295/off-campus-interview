@@ -1,6 +1,41 @@
+'use client'
 import React from 'react'
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
+   const contactForm=useFormik({
+    initialValues: currentUser,
+    onSubmit: (values,{resetForm}) => {
+      console.log(values);
+      fetch('http://localhost:5000/user/update/'+currentUser._id,{
+        method:'PUT',
+        body:JSON.stringify(values),
+        headers:{
+          'content-Type':'application/json'
+        }
+      })
+      .then((response) => {
+        console.log(response.status);
+        if(response.status===200)
+        {
+          toast.success("Message Send Successfully")
+          resetForm({ values: contactForm.initialValues });
+        }
+        else{
+          toast.error("Message Send Failed")
+        }
+      }).catch((err) => {
+        console.log(err);
+        toast.error("Contact us Failed")
+      });
+    },
+   })
+
   return (
     <div>
   <section className="bg-white dark:bg-gray-900">
@@ -103,7 +138,7 @@ const Contact = () => {
           Mon-Fri from 8am to 5pm.
         </p>
         <p className="mt-2 text-sm text-blue-500 dark:text-blue-400">
-          +1 (555) 000-0000
+          +1 (91) 000-0000
         </p>
       </div>
     </div>
@@ -127,25 +162,31 @@ const Contact = () => {
     <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
       <div>
         <label
-          htmlFor="first-name"
+          htmlFor="first_name"
           className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
         >
           First name*
         </label>
         <input
-          name="first-name"
+          type='text'
+          id="first_name"
+          onChange={contactForm.handleChange}
+          value={contactForm.values.first_name}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
       <div>
         <label
-          htmlFor="last-name"
+          htmlFor="last_name"
           className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
         >
           Last name*
         </label>
         <input
-          name="last-name"
+          type='text'
+          id="last_name"
+          onChange={contactForm.handleChange}
+            value={contactForm.values.last_name}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
@@ -157,7 +198,10 @@ const Contact = () => {
           Company
         </label>
         <input
-          name="company"
+          type='text'
+          id="company"
+          onChange={contactForm.handleChange}
+            value={contactForm.values.company}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
@@ -169,7 +213,10 @@ const Contact = () => {
           Email*
         </label>
         <input
-          name="email"
+          type='email'
+          id="email"
+          onChange={contactForm.handleChange}
+            value={contactForm.values.email}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
@@ -181,7 +228,10 @@ const Contact = () => {
           Subject*
         </label>
         <input
-          name="subject"
+          type='text'
+          id="subject"
+          onChange={contactForm.handleChange}
+            value={contactForm.values.subject}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
@@ -193,13 +243,16 @@ const Contact = () => {
           Message*
         </label>
         <textarea
-          name="message"
+          type="text"
+          id="message"
+          onChange={contactForm.handleChange}
+            value={contactForm.values.message}
           className="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
           defaultValue={""}
         />
       </div>
       <div className="flex items-center justify-between sm:col-span-2">
-        <button className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+        <button type='submit' className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
           Send
         </button>
         <span className="text-sm text-gray-500">*Required</span>

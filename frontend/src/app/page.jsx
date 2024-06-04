@@ -692,45 +692,7 @@ const Home = () => {
                 {/* social - end */}
               </div>
               {/* nav - start */}
-              <div>
-                <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
-                  Products
-                </div>
-                <nav className="flex flex-col gap-4">
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Overview
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Solutions
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Pricing
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Customers
-                    </a>
-                  </div>
-                </nav>
-              </div>
+              
               {/* nav - end */}
               {/* nav - start */}
               <div>
@@ -740,36 +702,22 @@ const Home = () => {
                 <nav className="flex flex-col gap-4">
                   <div>
                     <a
-                      href="#"
+                      href="/about"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                     >
                       About
                     </a>
                   </div>
+                  
                   <div>
                     <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Investor Relations
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
+                      href="/vacancy"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                     >
                       Jobs
                     </a>
                   </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-                    >
-                      Press
-                    </a>
-                  </div>
+                  
                   <div>
                     <a
                       href="#"
@@ -789,7 +737,7 @@ const Home = () => {
                 <nav className="flex flex-col gap-4">
                   <div>
                     <a
-                      href="#"
+                      href="/contact"
                       className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                     >
                       Contact
