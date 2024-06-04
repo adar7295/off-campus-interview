@@ -146,7 +146,7 @@ const compSignup = () => {
                     <div className="flex justify-center items-center">
                       <label className="mr-2">Already have an account?</label>
                       <a
-                        href="#"
+                        href="/compLogin"
                         className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
                       >
                         Login
@@ -164,3 +164,4 @@ const compSignup = () => {
   )
 }
 export default compSignup;
+
