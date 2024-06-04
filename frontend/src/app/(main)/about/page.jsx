@@ -1,13 +1,13 @@
 import React from 'react'
-
+import styles from "./about.module.css";
 const About = () => {
   return (
     <div>
       
     <div>
       <>
-        <header className={`bg-blue-700 ${styles.header}`}>
-          <h1>About Us</h1>
+        <header className={`bg-white text-center ${styles.header}`}>
+          <h1 className='text-black font-bold '>About Us</h1>
         </header>
         <main className={styles.main}>
           <section>
