@@ -159,7 +159,7 @@ const Contact = () => {
     </div>
     {/* text - end */}
     {/* form - start */}
-    <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+    <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" onSubmit={contactForm.handleSubmit}>
       <div>
         <label
           htmlFor="first_name"
