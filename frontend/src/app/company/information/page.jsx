@@ -91,8 +91,10 @@ const companyInfo = () => {
                 </label>
                 <div className="mt-2">
                   <textarea
+                  type="text"
                     id="about"
-                    name="about"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.about}
                     rows={3}
                     className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={""}
@@ -164,8 +166,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="first-name"
                     id="first-name"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.first-name}
                     autoComplete="given-name"
                     className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -181,8 +184,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="last-name"
                     id="last-name"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.last-name}
                     autoComplete="family-name"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -198,8 +202,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     id="email"
-                    name="email"
                     type="email"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.email}
                     autoComplete="email"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -215,13 +220,13 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <select
                     id="country"
-                    name="country"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.country}
                     autoComplete="country-name"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
+                    <option>India</option>
+                    
                   </select>
                 </div>
               </div>
@@ -235,8 +240,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="street-address"
-                    id="street-address"
+                    id="street_address"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.street_address}
                     autoComplete="street-address"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -252,8 +258,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="city"
                     id="city"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.city}
                     autoComplete="address-level2"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -269,8 +276,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="region"
                     id="region"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.region}
                     autoComplete="address-level1"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -286,8 +294,9 @@ const companyInfo = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="postal-code"
-                    id="postal-code"
+                    id="postal_code"
+                    onChange={profileForm.handleChange}
+                    value={profileForm.values.postal_code}
                     autoComplete="postal-code"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
