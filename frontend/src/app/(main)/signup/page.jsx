@@ -386,7 +386,13 @@ const Signup = () => {
                       <button type="submit" className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
                         REGISTER NOW
                       </button>
+
                     </div>
+                  </div>
+                  <div>
+                    <label htmlFor="login" className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                      Don't have an Account? <Link href={'/login'}>Login</Link> 
+                    </label>
                   </div>
                 </div>
               </form>

@@ -6,6 +6,7 @@ const companyInfo = () => {
 
   const [currentCompany, setCurrentCompany] = useState(JSON.parse(sessionStorage.getItem('company')));
 
+
   const updateProfile = (data) => {
     fetch('http://localhost:5000/company/update/' + currentCompany._id, {
       method: 'PUT',
@@ -31,7 +32,27 @@ const companyInfo = () => {
   const profileForm = useFormik({
     initialValues: currentCompany,
     onSubmit: (values) => {
-      console.log(values);
+
+      fetch('http://localhost:5000/company/update/' + currentCompany._id, {
+        method: 'PUT',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((response) => {
+          console.log(response.status);
+          return response.json();
+        })
+        .then((result) => {
+          console.log(result);
+          setCurrentCompany(result);
+          sessionStorage.setItem('company', JSON.stringify(result));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
     }
   })
 
@@ -91,7 +112,7 @@ const companyInfo = () => {
                 </label>
                 <div className="mt-2">
                   <textarea
-                  type="text"
+                    type="text"
                     id="about"
                     onChange={profileForm.handleChange}
                     value={profileForm.values.about}
@@ -168,7 +189,7 @@ const companyInfo = () => {
                     type="text"
                     id="first-name"
                     onChange={profileForm.handleChange}
-                    value={profileForm.values.first-name}
+                    value={profileForm.values.first - name}
                     autoComplete="given-name"
                     className="block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -186,7 +207,7 @@ const companyInfo = () => {
                     type="text"
                     id="last-name"
                     onChange={profileForm.handleChange}
-                    value={profileForm.values.last-name}
+                    value={profileForm.values.last - name}
                     autoComplete="family-name"
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -226,7 +247,7 @@ const companyInfo = () => {
                     className="block w-full rounded-md bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
                     <option>India</option>
-                    
+
                   </select>
                 </div>
               </div>

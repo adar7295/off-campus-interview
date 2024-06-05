@@ -6,7 +6,7 @@ import useCompanyContext from '../Context/CompanyContext';
 const Navbar = () => {
 
   const { companyLoggedIn, companyLogout } = useCompanyContext();
-
+  console.log(companyLoggedIn);
   const showLoginOption = () => {
     if (companyLoggedIn) {
       return <>
@@ -28,7 +28,7 @@ const Navbar = () => {
         </li>
       </>
     } else {
-      <>
+      return <>
         <li>
           <a
             href="/compLogin"
@@ -98,12 +98,12 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/about"
+                  <Link
+                    href="/vacancy"
                     className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   >
-                    About
-                  </a>
+                    Vacancies
+                  </Link>
                 </li>
                 <li>
                   <a

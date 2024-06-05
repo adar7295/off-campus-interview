@@ -12,7 +12,7 @@ const Contact = () => {
     initialValues: currentUser,
     onSubmit: (values,{resetForm}) => {
       console.log(values);
-      fetch('http://localhost:5000/user/update/'+currentUser._id,{
+      fetch('http://localhost:5000/user/update/' + currentUser._id,{
         method:'PUT',
         body:JSON.stringify(values),
         headers:{
@@ -162,31 +162,31 @@ const Contact = () => {
     <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" onSubmit={contactForm.handleSubmit}>
       <div>
         <label
-          htmlFor="first_name"
+          htmlFor="first-name"
           className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
         >
-          First name*
+          Full Name*
         </label>
         <input
           type='text'
-          id="first_name"
+          id="first-name"
           onChange={contactForm.handleChange}
-          value={contactForm.values.first_name}
+          value={contactForm.values.first-name}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
       <div>
         <label
-          htmlFor="last_name"
+          htmlFor="last-name"
           className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
         >
           Last name*
         </label>
         <input
           type='text'
-          id="last_name"
+          id="last-name"
           onChange={contactForm.handleChange}
-            value={contactForm.values.last_name}
+          value={contactForm.values.last-name}
           className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
         />
       </div>
