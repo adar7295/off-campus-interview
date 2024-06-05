@@ -106,13 +106,11 @@ const Vacancy = () => {
       className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
       placeholder="Search"
     />
-
   </div>
   <div className="flex flex-col justify-between flex-1 mt-6">
     <nav>
     <hr className="my-6 border-gray-200 dark:border-gray-600" />
       <div>
-
   <span className="ml-2 text-black font-semibold mt-3 ">Qualification</span>
       <a
         className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -173,7 +171,6 @@ const Vacancy = () => {
             defaultChecked=""
           />
           <span className="ml-2 text-gray-700">10000-15000</span>
-        
       </a>
       <a
         className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -185,7 +182,6 @@ const Vacancy = () => {
             defaultChecked=""
             />
           <span className="ml-2 text-gray-700">15000-20000</span>
-        
       </a>
       <a
         className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -197,7 +193,6 @@ const Vacancy = () => {
             defaultChecked=""
             />
           <span className="ml-2 text-gray-700">20000-25000</span>
-        
       </a>
             </div>
             <hr className="my-6 border-gray-200 dark:border-gray-600" />
@@ -214,7 +209,6 @@ const Vacancy = () => {
       defaultChecked=""
     />
     <span className="ml-2 text-gray-700">Part time</span>
-  
 </a>
 <a
   className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -226,12 +220,8 @@ const Vacancy = () => {
       defaultChecked=""
       />
     <span className="ml-2 text-gray-700">Fulll time</span>
-  
 </a>
       </div>
-     
-      
-     
     </nav>
   </div>
 </aside>
