@@ -72,7 +72,7 @@ const companyInfo = () => {
   };
 
   return (
-    <div className='ml-96 mr-96 mt-12'>
+    <div className='ml-96 mr-96 mt-12 '>
       <form onSubmit={profileForm.handleSubmit}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
