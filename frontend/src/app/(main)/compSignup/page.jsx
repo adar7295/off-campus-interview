@@ -39,6 +39,7 @@ const compSignup = () => {
           console.log(response.status);
           if (response.status === 200) {
             toast.success('User Registered Successfully');
+          
           }
           else {
             toast.error('User Rrgistration Failed');

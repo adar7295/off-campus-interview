@@ -31,9 +31,9 @@ const Login = () => {
               .then((data) => {
                 
                 sessionStorage.setItem('signupData', JSON.stringify(data));
-                router.push('/user/profile');
+                router.push('/user/profile'); 
               });
-
+              
           }
           else {
             toast.error('Invalid Credentials');

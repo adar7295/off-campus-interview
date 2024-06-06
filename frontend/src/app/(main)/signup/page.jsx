@@ -41,10 +41,12 @@ const Signup = () => {
         if(response.status === 200){
           toast.success('User Registered Successfully');
           resetForm();
+          
         }
         else{
           toast.error('User Rrgistration Failed');
         }
+        
       })
       .catch((err) => {
         console.log(err);
