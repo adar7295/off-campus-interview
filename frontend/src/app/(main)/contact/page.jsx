@@ -6,14 +6,21 @@ import toast from 'react-hot-toast';
 
 const Contact = () => {
 
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('company')));
+  //const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const contactForm = useFormik({
-    initialValues: currentUser,
+    initialValues: {
+      firstname:'',
+      lastName:'',
+      company:"",
+      email:"",
+      subject:'',
+      message:''
+    },
     onSubmit: (values, { resetForm }) => {
       console.log(values);
-      fetch('http://localhost:5000/user/update/' + currentUser._id, {
-        method: 'PUT',
+      fetch('http://localhost:5000/contact/add/', {
+        method: 'POST',
         body: JSON.stringify(values),
         headers: {
           'content-Type': 'application/json'
@@ -23,7 +30,7 @@ const Contact = () => {
           console.log(response.status);
           if (response.status === 200) {
             toast.success("Message Send Successfully")
-            resetForm({ values: contactForm.initialValues });
+            resetForm({values});
           }
           else {
             toast.error("Message Send Failed")
