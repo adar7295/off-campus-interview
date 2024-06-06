@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const Contact = () => {
 
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('company')));
 
   const contactForm = useFormik({
     initialValues: currentUser,
