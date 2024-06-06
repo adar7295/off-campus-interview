@@ -1,6 +1,6 @@
 const express =require('express');
 const router =express.Router();
-const Model =require('../models/contactModel');
+const Model =require('../model/contactModel');
 
 router.post('/add',(req,res)=>{
     console.log("Contact added ");

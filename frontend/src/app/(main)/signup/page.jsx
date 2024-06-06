@@ -9,7 +9,7 @@ const SignupSchema = Yup.object().shape({
   firstName : Yup.string().min(4, 'Enter Valid First Name').required('Enter your Name'),
   lastName : Yup.string().min(4,'Enter Valid Last Name').required('Enter Last Name'),
   email : Yup.string().email('Invalid Email').required('Email is Required'),
-  password : Yup.string().required('Enter Strong Password').min(8, 'Password is too Small')
+  password : Yup.string().required('Enter Strong Password').min(4, 'Password is too Small')
   .matches(/[a-z]/, 'Must Include Lowercase').matches(/[A-Z]/, 'Must Include Uppercase')
   .matches(/\W/, 'Must Include Special Character'),
   confirmPassword : Yup.string().oneOf([Yup.ref('password'),null], 'Password Must Match')
@@ -277,9 +277,9 @@ const Signup = () => {
                 <form onSubmit={signupForm.handleSubmit} >
 
                 <div>
-                  <div className="flex -mx-3">
+                  <div className="flex block -mx-3">
                     <div className="w-1/2 px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs block font-semibold px-1">
                         First name
                       </label>
                       <div className="flex">
@@ -291,13 +291,18 @@ const Signup = () => {
                           id="firstName"
                           onChange={signupForm.handleChange}
                           values={signupForm.values.firstName}
-                          className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
+                          className="bg-white block w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="First Name"
                           />
+                          
                       </div>
+                      {
+                      signupForm.touched.firstName &&
+                      <small className='text-sm text-red-500'>{signupForm.errors.firstName}</small>
+                    }
                     </div>
                     <div className="w-1/2 px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs block font-semibold px-1">
                         Last name
                       </label>
                       <div className="flex">
@@ -309,19 +314,24 @@ const Signup = () => {
                           id="lastName"
                           onChange={signupForm.handleChange}
                           values={signupForm.values.lastName}
-                          className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
+                          className="bg-white block w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="Last Name"
                           />
+                         
                       </div>
+                      {
+                      signupForm.touched.lastName &&
+                      <small className='text-sm text-red-500'>{signupForm.errors.lastName}</small>
+                    }
                     </div>
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <label htmlFor="" className="text-xs font-semibold px-1">
+                      <label htmlFor="" className="text-xs block font-semibold px-1">
                         Email
                       </label>
                       <div className="flex">
-                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <div className="w-10 z-10 block pl-1 text-center pointer-events-none flex items-center justify-center">
                           <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                         </div>
                         <input
@@ -332,7 +342,12 @@ const Signup = () => {
                           className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                           placeholder="email@gmail.com"
                           />
+                          
                       </div>
+                      {
+                      signupForm.touched.email &&
+                      <small className='text-sm text-red-500'>{signupForm.errors.email}</small>
+                    }
                     </div>
                   </div>
                   <div className="flex -mx-3">
@@ -353,9 +368,9 @@ const Signup = () => {
                           placeholder="************"
                           />
                       </div>
-                      {signupForm.touched.password && (
-                        <small className='text-danger'>{signupForm.errors.password}</small>
-                      )}
+                      {signupForm.touched.password && 
+                        <small className='text-sm text-red-500'>{signupForm.errors.password}</small>
+                      }
                     </div>
                   </div>
                   <div className="flex -mx-3">
@@ -376,9 +391,9 @@ const Signup = () => {
                           placeholder="************"
                           />
                       </div>
-                      {signupForm.touched.confirmPassword && (
-                        <small className='text-danger'>{signupForm.errors.confirmPassword}</small>
-                      )}
+                      {signupForm.touched.confirmPassword && 
+                        <small className='text-sm text-red-500'>{signupForm.errors.confirmPassword}</small>
+                      }
                     </div>
                   </div>
                   <div className="flex -mx-3">
