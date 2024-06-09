@@ -15,6 +15,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-icon": "^1.0.0",
+    "react-star-ratings": "^2.3.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

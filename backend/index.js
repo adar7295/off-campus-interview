@@ -5,6 +5,7 @@ const companyRouter = require('./router/companyRouter');
 const interviewRouter = require('./router/interviewRouter');
 const utilRouter = require('./router/util');
 const contactRouter = require('./router/contactRouter');
+//const feedbackRouter=require('./routers/feedbackRouter');
 
 const cors = require('cors');
 
@@ -23,6 +24,7 @@ app.use('/user', userRouter);
 app.use('/company', companyRouter);
 app.use('/jobpost', interviewRouter);
 app.use('/util', utilRouter);
+//app.use('/feedback',feedbackRouter);
 app.use('/contact', contactRouter);
 
 app.use(express.static('./static/uploads'));
