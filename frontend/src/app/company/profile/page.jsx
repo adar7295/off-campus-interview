@@ -2,9 +2,9 @@ import React from 'react'
 
 const Profile = () => {
 
-    
+
   return (
-    <div>
+    <div className='flex justify-center mt-10 '>
         <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
   <img
     className="object-cover object-center w-full h-56"
