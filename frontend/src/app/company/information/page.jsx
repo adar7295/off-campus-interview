@@ -1,6 +1,7 @@
 'use client'
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const companyInfo = () => {
 
@@ -22,9 +23,11 @@ const companyInfo = () => {
         console.log(data);
         setCurrentCompany(data);
         sessionStorage.setItem('company', JSON.stringify(data));
+        toast.success('Profile Updated Successfully');
       })
       .catch((err) => {
         console.log(err);
+        toast.error('Some Error Occured');
       });
 
   }
@@ -48,9 +51,11 @@ const companyInfo = () => {
           console.log(result);
           setCurrentCompany(result);
           sessionStorage.setItem('company', JSON.stringify(result));
+          toast.success('Profile Updated Successfully');
         })
         .catch((err) => {
           console.log(err);
+          toast.error('Some Error Occured');
         });
 
     }
@@ -325,7 +330,7 @@ const companyInfo = () => {
               </div>
             </div>
           </div>
-          
+
         </div>
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
