@@ -2,12 +2,40 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
+const qualifications = [
+  'BCA',
+  'MCA',
+  'B.Tech',
+  'M.Tech',
+  'B.Com',
+  'M.Com',
+  'BBA',
+  'MBA',
+  'B.Sc',
+  'M.Sc'
+]
+
+const jobTypes = [
+  'Part Time',
+  'Full Time'
+]
+
+const salaryRanges = [
+  '10000-15000',
+  '15000-20000',
+  '20000-25000',
+  'not disclosed'
+]
 
 const Vacancy = () => {
 
   const [jobList, setJobList] = useState([]);
   const [masterList, setMasterList] = useState([]);
   const [companyList, setCompanyList] = useState([]);
+
+  const [selQualifications, setSelQualifications] = useState([]);
+  const [selJobTypes, setSelJobTypes] = useState([]);
+  const [selSalaryRanges, setSelSalaryRanges] = useState([]);
 
   const fetchJobs = () => {
     fetch('http://localhost:5000/jobpost/getall')
@@ -46,10 +74,41 @@ const Vacancy = () => {
     )
   }
 
+
   useEffect(() => {
     fetchJobs();
     fetchCompanies();
   }, []);
+
+  useEffect(() => {
+    if (selQualifications.length > 0) {
+      setJobList(
+        masterList.filter(job => selQualifications.includes(job.eduQualification))
+      )
+    } else {
+      setJobList(masterList);
+    }
+  }, [selQualifications])
+
+  useEffect(() => {
+    if (selJobTypes.length > 0) {
+      setJobList(
+        masterList.filter(job => selJobTypes.includes(job.jobType))
+      )
+    } else {
+      setJobList(masterList);
+    }
+  }, [selJobTypes])
+
+  useEffect(() => {
+    if (selSalaryRanges.length > 0) {
+      setJobList(
+        masterList.filter(job => selSalaryRanges.includes(job.salaryRange))
+      )
+    } else {
+      setJobList(masterList);
+    }
+  }, [selSalaryRanges])
 
   const displayJobs = () => {
     return jobList.map(job => {
@@ -124,115 +183,80 @@ const Vacancy = () => {
               <hr className="my-6 border-gray-200 dark:border-gray-600" />
               <div>
                 <span className="ml-2 text-black font-semibold mt-3 ">Qualification</span>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">BCA</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">MCA</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">B.Com</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">M.Com</span>
-                </a>
+                {
+                  qualifications.map(qualification => (
+                    <a
+                      className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      href="#"
+                    >
+                      <input
+                        type="checkbox"
+                        className="form-checkbox h-5 w-5 text-gray-600"
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelQualifications([...selQualifications, qualification])
+                          } else {
+                            setSelQualifications(selQualifications.filter(selQualification => selQualification !== qualification))
+                          }
+                        }}
+                      />
+                      <span className="ml-2 text-gray-700">{qualification}</span>
+                    </a>
+                  ))
+                }
               </div>
               <hr className="my-6 border-gray-200 dark:border-gray-600" />
               <div className='mt-5'>
 
                 <span className="ml-2 text-black font-semibold ">Salary</span>
-                <a
-                  className="flex items-center px-4 py-2  text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">10000-15000</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">15000-20000</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">20000-25000</span>
-                </a>
+                {
+                  salaryRanges.map(salaryRange => (
+                    <a
+                      className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      href="#"
+                    >
+                      <input
+                        type="checkbox"
+                        className="form-checkbox h-5 w-5 text-gray-600"
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelSalaryRanges([...selSalaryRanges, salaryRange])
+                          } else {
+                            setSelSalaryRanges(selSalaryRanges.filter(selSalaryRange => selSalaryRange !== salaryRange))
+                          }
+                        }}
+                      />
+                      <span className="ml-2 text-gray-700">{salaryRange}</span>
+                    </a>
+                  ))
+                }
               </div>
               <hr className="my-6 border-gray-200 dark:border-gray-600" />
               <div className='mt-5'>
 
                 <span className="ml-2 text-black font-semibold ">Job Type</span>
-                <a
-                  className="flex items-center px-4 py-2  text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">Part time</span>
-                </a>
-                <a
-                  className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  href="#"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-gray-600"
-                    defaultChecked=""
-                  />
-                  <span className="ml-2 text-gray-700">Fulll time</span>
-                </a>
+                {
+                  jobTypes.map(jobType => (
+
+                    <a
+                      className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      href="#"
+                    >
+                      <input
+                        type="checkbox"
+                        className="form-checkbox h-5 w-5 text-gray-600"
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelJobTypes([...selJobTypes, jobType])
+                          } else {
+                            setSelJobTypes(selJobTypes.filter(selJobType => selJobType !== jobType))
+                          }
+                        }}
+                      />
+                      <span className="ml-2 text-gray-700">{jobType}</span>
+                    </a>
+                  ))
+                }
               </div>
             </nav>
           </div>

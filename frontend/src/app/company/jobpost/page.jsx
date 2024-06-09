@@ -4,6 +4,19 @@ import React, { useState } from 'react'
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
+const qualifications = [
+  'BCA',
+  'MCA',
+  'B.Tech',
+  'M.Tech',
+  'B.Com',
+  'M.Com',
+  'BBA',
+  'MBA',
+  'B.Sc',
+  'M.Sc'
+]
+
 const jobPostSchema = Yup.object().shape({
 
   jobDescription: Yup.string().required('Add Some details'),
@@ -35,7 +48,7 @@ const Jobpost = () => {
       workExperience: '',
       location: '',
     },
-    onSubmit: (values,{resetForm}) => {
+    onSubmit: (values, { resetForm }) => {
       console.log(values);
 
       fetch('http://localhost:5000/jobpost/add', {
@@ -116,10 +129,10 @@ const Jobpost = () => {
                                   placeholder="Add Some Details..."
                                   defaultValue={''}
                                 />
-                            
-                                
-                                 </div>
-                               <div>
+
+
+                              </div>
+                              <div>
 
                                 {
                                   jobPostForm.touched.jobDescription &&
@@ -146,14 +159,14 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Designation"
                                 />
-                                </div>
-                                <div>
+                              </div>
+                              <div>
 
                                 {
                                   jobPostForm.touched.designation &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.designation}</small>
                                 }
-                                </div>
+                              </div>
                             </div>
 
                           </div>
@@ -174,8 +187,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Enter no. of entry"
                                 />
-                                </div>
-                                <div>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.numberOfEntries &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.numberOfEntries}</small>
@@ -204,8 +217,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Part Time/Full Time"
                                 />
-                                 </div>
-                                <div>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.jobType &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.jobType}</small>
@@ -231,8 +244,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Enter Salary"
                                 />
-                                 </div>
-                                <div>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.salary &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.salary}</small>
@@ -249,16 +262,23 @@ const Jobpost = () => {
                                 <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                   <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
                                 </div>
-                                <input
+                                <select
                                   type="text"
                                   id="eduQualification"
                                   onChange={jobPostForm.handleChange}
                                   values={jobPostForm.values.eduQualification}
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Required Educational qualification"
-                                />
-                                 </div>
-                                <div>
+                                >
+                                  <option value="">Select Qualification</option>
+                                  {
+                                    qualifications.map(qualification => (
+                                      <option value={qualification}>{qualification}</option>
+                                    ))
+                                  }
+                                </select>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.eduQualification &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.eduQualification}</small>
@@ -283,8 +303,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Require work experience"
                                 />
-                               </div>
-                                <div>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.workExperience &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.workExperience}</small>
@@ -309,8 +329,8 @@ const Jobpost = () => {
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="location"
                                 />
-                                 </div>
-                                <div>
+                              </div>
+                              <div>
                                 {
                                   jobPostForm.touched.location &&
                                   <small className='text-sm text-red-500'>{jobPostForm.errors.location}</small>
