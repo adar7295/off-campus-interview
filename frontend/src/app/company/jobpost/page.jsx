@@ -17,6 +17,18 @@ const qualifications = [
   'M.Sc'
 ]
 
+const salary =[
+  '10000-20000',
+  '20000-25000',
+  '25000-30000',
+  '30000-35000'
+]
+
+const jobType =[
+  'Full Time',
+  'Part Time'
+]
+
 const jobPostSchema = Yup.object().shape({
 
   jobDescription: Yup.string().required('Add Some details'),
@@ -209,14 +221,21 @@ const Jobpost = () => {
                                 <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                   <i className="mdi mdi-email-outline text-gray-400 text-lg" />
                                 </div>
-                                <input
+                                <select
                                   type="text"
                                   id="jobType"
                                   onChange={jobPostForm.handleChange}
                                   values={jobPostForm.values.jobType}
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Part Time/Full Time"
-                                />
+                                >
+                                  <option value="">Select Job Type</option>
+                                  {
+                                    jobType.map(jobType => (
+                                      <option value={jobType}>{jobType}</option>
+                                    ))
+                                  }
+                                </select>
                               </div>
                               <div>
                                 {
@@ -236,14 +255,21 @@ const Jobpost = () => {
                                 <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                   <i className="mdi mdi-lock-outline text-gray-400 text-lg" />
                                 </div>
-                                <input
+                                <select
                                   type="text"
                                   id="salary"
                                   onChange={jobPostForm.handleChange}
                                   values={jobPostForm.values.salary}
                                   className="bg-white w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo"
                                   placeholder="Enter Salary"
-                                />
+                                >
+                                  <option value="">Select Salary</option>
+                                  {
+                                    salary.map(salary => (
+                                      <option value={salary}>{salary}</option>
+                                    ))
+                                  }
+                                </select>
                               </div>
                               <div>
                                 {
