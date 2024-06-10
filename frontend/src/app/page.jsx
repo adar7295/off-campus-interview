@@ -250,12 +250,8 @@ const Home = () => {
                     className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                   />
                   <div className="absolute bottom-2 left-0 flex gap-2">
-                    <span className="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">
-                      -50%
-                    </span>
-                    <span className="rounded-lg bg-white px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-gray-800">
-                      New
-                    </span>
+                   
+                   
                   </div>
                 </a>
                 <div className="flex items-start justify-between gap-2 px-2">

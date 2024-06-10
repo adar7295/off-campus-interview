@@ -30,7 +30,7 @@ const Login = () => {
             response.json()
               .then((data) => {
                 
-                sessionStorage.setItem('signupData', JSON.stringify(data));
+                sessionStorage.setItem('user', JSON.stringify(data));
                 router.push('/user/profile'); 
               });
               

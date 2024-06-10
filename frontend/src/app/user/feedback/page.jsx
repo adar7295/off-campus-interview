@@ -6,51 +6,51 @@ import toast from "react-hot-toast";
 import * as Yup from "yup";
 import StarRatings from 'react-star-ratings';
 
-// const FeedbackSchema = Yup.object().shape({
-//   name: Yup.string().min(4, "Write your fullname").required("name is required"),
-//   email: Yup.string().email("Invalid email").required("Required"),
-//   comment: Yup.string().required("Comment is required").min(6, "Too small"),
-// });
+const FeedbackSchema = Yup.object().shape({
+  name: Yup.string().min(4, "Write your fullname").required("name is required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  comment: Yup.string().required("Comment is required").min(6, "Too small"),
+});
 
-// const Feedback = () => {
+const Feedback = () => {
 
-//   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-//   const [rating, setRating] = useState(4)
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [rating, setRating] = useState(4)
 
 
-//   const feedback = useFormik({
-//     initialValues: {
-//       name: currentUser.name,
-//       email: currentUser.email,
-//       comment: "",
-//       rating: 4,
-//     },
-//     onSubmit: (values, { resetForm }) => {
-//       console.log(values);
-//       values.rating = rating;
-//       fetch("http://localhost:5500/feedback/add", {
-//         method: "POST",
-//         body: JSON.stringify(values),
-//         headers: {
-//           "content-Type": "application/json",
-//         },
-//       })
-//         .then((response) => {
-//           console.log(response.status);
-//           if (response.status === 200) {
-//             toast.success("Feedback added Successfully");
-//             resetForm();
-//           } else {
-//             toast.error("Feedback Failed");
-//           }
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//           toast.error("Feedback Failed");
-//         });
-//     },
-//     validationSchema: FeedbackSchema,
-//   });
+  const feedback = useFormik({
+    initialValues: {
+      name: currentUser.name,
+      email: currentUser.email,
+      comment: "",
+      rating: 4,
+    },
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      values.rating = rating;
+      fetch("http://localhost:5000/feedback/add", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success("Feedback added Successfully");
+            resetForm();
+          } else {
+            toast.error("Feedback Failed");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Feedback Failed");
+        });
+    },
+    validationSchema: FeedbackSchema,
+  });
   return (
     <div>
       <>
