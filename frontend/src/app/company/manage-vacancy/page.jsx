@@ -57,13 +57,13 @@ const ManageVacancy = () => {
                                 <div className="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
                                     <div>
                                         <h2 className="text-xl font-semibold text-gray-800 dark:text-neutral-200">
-                                            Users
+                                            Applicant Details
                                         </h2>
                                         <p className="text-sm text-gray-600 dark:text-neutral-400">
-                                            Add users, edit and more.
+                                            
                                         </p>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <div className="inline-flex gap-x-2">
                                             <a
                                                 className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
@@ -93,7 +93,7 @@ const ManageVacancy = () => {
                                                 Add user
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {/* End Header */}
                                 {/* Table */}
@@ -106,35 +106,35 @@ const ManageVacancy = () => {
                                             >
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                        Name
+                                                        Designation
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                        Position
+                                                        Job type
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                        Status
+                                                        Qualification
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                        Portfolio
+                                                        work Experience
                                                     </span>
                                                 </div>
                                             </th>
                                             <th scope="col" className="px-6 py-3 text-start">
                                                 <div className="flex items-center gap-x-2">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                        Created
+                                                        salary
                                                     </span>
                                                 </div>
                                             </th>
@@ -166,44 +166,26 @@ const ManageVacancy = () => {
                                                     </td>
                                                     <td className="size-px whitespace-nowrap">
                                                         <div className="px-6 py-3">
-                                                            <span className="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
-                                                                <svg
-                                                                    className="size-2.5"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    width={16}
-                                                                    height={16}
-                                                                    fill="currentColor"
-                                                                    viewBox="0 0 16 16"
-                                                                >
-                                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                                                                </svg>
-                                                                Active
+                                                            <span className="block text-sm font-semibold text-gray-800 dark:text-neutral-200">
+                                                                
+                                                                {interview.eduQualification}
                                                             </span>
                                                         </div>
                                                     </td>
                                                     <td className="size-px whitespace-nowrap">
                                                         <div className="px-6 py-3">
                                                             <div className="flex items-center gap-x-3">
-                                                                <span className="text-xs text-gray-500 dark:text-neutral-500">
-                                                                    1/5
+                                                                <span className="block text-sm font-semibold text-gray-800 dark:text-neutral-200">
+                                                                {interview.workExperience}
                                                                 </span>
-                                                                <div className="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700">
-                                                                    <div
-                                                                        className="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-neutral-200"
-                                                                        role="progressbar"
-                                                                        style={{ width: "25%" }}
-                                                                        aria-valuenow={25}
-                                                                        aria-valuemin={0}
-                                                                        aria-valuemax={100}
-                                                                    />
-                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td className="size-px whitespace-nowrap">
                                                         <div className="px-6 py-3">
-                                                            <span className="text-sm text-gray-500 dark:text-neutral-500">
-                                                                28 Dec, 12:12
+                                                            <span className="block text-sm font-semibold text-gray-800 dark:text-neutral-200">
+                                                            {interview.salary}
                                                             </span>
                                                         </div>
                                                     </td>
@@ -216,7 +198,7 @@ const ManageVacancy = () => {
                                                                 }}
                                                                 className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
                                                             >
-                                                                Edit
+                                                                View List
                                                             </button>
                                                         </div>
                                                     </td>
@@ -261,14 +243,14 @@ const ManageVacancy = () => {
                                         >
                                             <div className="flex items-center gap-x-2">
                                                 <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Name
+                                                    Designation
                                                 </span>
                                             </div>
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-start">
                                             <div className="flex items-center gap-x-2">
                                                 <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Position
+                                                    jobType
                                                 </span>
                                             </div>
                                         </th>
