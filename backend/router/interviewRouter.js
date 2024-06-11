@@ -26,8 +26,20 @@ router.get('/getall', (req, res) => {
       res.status(500).json(err);
     });
 });
+
 router.get('/getbyid/:id', (req, res) => {
   Model.findById(req.params.id)
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err)
+    });
+});
+
+router.get('/getbycompany/:id', (req, res) => {
+  console.log(req.params.id);
+  Model.find({ company: req.params.id })
     .then((result) => {
       res.json(result)
     }).catch((err) => {

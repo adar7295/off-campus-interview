@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const companyModel = require('../model/companyModel');
+const companyModel = require('../model/applyModel');
 
 router.post('/add', (req, res) => {
   console.log(req.body);
@@ -49,6 +49,24 @@ router.put('/update/:id', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
   companyModel.findById(req.params.id)
+    .then((result) => {
+      res.status(200).json(result)
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+router.get('/getbyinterview/:id', (req, res) => {
+  companyModel.find({ interview: req.params.id }).populate('user')
+    .then((result) => {
+      res.status(200).json(result)
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+router.get('/checkapplication/:id/:userid', (req, res) => {
+  companyModel.findOne({ interview: req.params.id, user: req.params.userid })
     .then((result) => {
       res.status(200).json(result)
     }).catch((err) => {

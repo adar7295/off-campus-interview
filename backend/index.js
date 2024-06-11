@@ -6,6 +6,7 @@ const interviewRouter = require('./router/interviewRouter');
 const utilRouter = require('./router/util');
 const contactRouter = require('./router/contactRouter');
 const feedbackRouter = require('./router/feedbackRouter');
+const applyRouter = require('./router/applyRouter');
 
 const cors = require('cors');
 
@@ -26,6 +27,7 @@ app.use('/jobpost', interviewRouter);
 app.use('/util', utilRouter);
 app.use('/feedback', feedbackRouter);
 app.use('/contact', contactRouter);
+app.use('/apply', applyRouter);
 
 app.use(express.static('./static/uploads'));
 

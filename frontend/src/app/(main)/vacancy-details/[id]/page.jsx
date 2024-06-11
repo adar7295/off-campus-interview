@@ -1,11 +1,14 @@
 'use client'
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
 
 const VacancyDetails = () => {
 
   const { id } = useParams();
   const [Data, setData] = useState([])
+
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const fetchJobs = async () => {
     const res = await fetch("http://localhost:5000/jobpost/getbyid/" + id);
@@ -14,10 +17,51 @@ const VacancyDetails = () => {
     console.log(data);
     setData(data)
   }
+
   useEffect(() => {
     fetchJobs()
   }, [])
 
+
+  const applyInterview = () => {
+    if (currentUser === null) {
+      return toast.error('Login  to Apply')
+    } else {
+      fetch('http://localhost:5000/apply/checkapplication/' + id + '/' + currentUser._id)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          if (data) {
+            toast.error('You have applied already!!')
+          } else {
+
+            fetch('http://localhost:5000/apply/add', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                interview: id,
+                user: currentUser._id
+              })
+            })
+              .then((response) => {
+                if (response.status === 200) {
+                    toast.success('Applied Successfully');
+                }
+              }).catch((err) => {
+                console.log(err);
+              });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+    }
+  }
 
   const displayJobs = () => {
     if (Data !== null) {
@@ -101,6 +145,9 @@ const VacancyDetails = () => {
                 <h1 className="mx-4 text-xl font-semibold text-gray-700 dark:text-white">
                   Required Skills, Experience and Qualification
                 </h1>
+
+                <button className='bg-blue-500 py-3 px-4 rounded-md text-white' onClick={applyInterview}>Apply</button>
+
                 <div className="flex mt-8 md:mx-10">
                   <span className="border border-blue-500" />
                   <p className="max-w-3xl px-4 text-gray-500 dark:text-gray-300">
